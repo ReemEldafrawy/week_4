@@ -1,0 +1,30 @@
+#include<stack>
+#include<string>
+using namespace std;
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char>Stack;
+        for(char c:s)
+        {
+
+if(c=='('||c=='{'||c=='[')
+{
+    Stack.push(c);//incude open brackets;
+}
+else
+{
+if(Stack.empty()
+||( c==')'&&Stack.top()!='(')
+||(c=='}'&&Stack.top()!='{')
+||(c==']'&&Stack.top()!='['))  
+{
+    return false;
+}
+Stack.pop();
+        }
+
+    }
+    return Stack.empty();
+    }
+};
